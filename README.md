@@ -12,7 +12,7 @@
 
 ## 如何使用？ [视频教程](https://www.youtube.com/watch?v=T-bK5o96lqI)
 
-假设你的 Cloudflare Workers 项目部署在`raw.viptv.work`，
+假设你的 Cloudflare Workers 项目部署在`raw.vodtv.cn`，
 
 而你要访问的私有文件是`https://raw.githubusercontent.com/hefung/raw/main/_worker.js`。
 
@@ -21,13 +21,13 @@
 最直接的方法是在 URL 中添加你的 GitHub 令牌作为参数：
 
 ```url
-https://raw.viptv.work/hefung/raw/main/_worker.js?token=你的GitHub令牌
+https://raw.vodtv.cn/hefung/raw/main/_worker.js?token=你的GitHub令牌
 ```
 
 或者，如果你喜欢完整的原始 URL：
 
 ```url
-https://raw.viptv.work/https://raw.githubusercontent.com/hefung/raw/main/_worker.js?token=你的GitHub令牌
+https://raw.vodtv.cn/https://raw.githubusercontent.com/hefung/raw/main/_worker.js?token=你的GitHub令牌
 ```
 
 ## 方法 2：在 Workers 中设置全局令牌
@@ -35,13 +35,13 @@ https://raw.viptv.work/https://raw.githubusercontent.com/hefung/raw/main/_worker
 如果你经常访问同一个私有仓库，可以在 Workers 设置中添加一个名为`GH_TOKEN`的变量，值为你的 GitHub 令牌。这样，你就可以直接访问，无需在 URL 中每次都包含令牌：
 
 ```url
-https://raw.viptv.work/hefung/raw/main/_worker.js
+https://raw.vodtv.cn/hefung/raw/main/_worker.js
 ```
 
 或者，如果你喜欢完整的原始 URL：
 
 ```url
-https://raw.viptv.work/https://raw.githubusercontent.com/hefung/raw/main/_worker.js
+https://raw.vodtv.cn/https://raw.githubusercontent.com/hefung/raw/main/_worker.js
 ```
 
 ## 方法 3：添加额外的访问控制（推荐）
@@ -54,13 +54,13 @@ https://raw.viptv.work/https://raw.githubusercontent.com/hefung/raw/main/_worker
 然后，你的 URL 会是这样的：
 
 ```url
-https://raw.viptv.work/hefung/raw/main/_worker.js?token=mysecretkey
+https://raw.vodtv.cn/hefung/raw/main/_worker.js?token=mysecretkey
 ```
 
 或者，如果你喜欢完整的原始 URL：
 
 ```url
-https://raw.viptv.work/https://raw.githubusercontent.com/hefung/raw/main/_worker.js?token=mysecretkey
+https://raw.vodtv.cn/https://raw.githubusercontent.com/hefung/raw/main/_worker.js?token=mysecretkey
 ```
 
 这种方法提供了双重安全：即使有人猜到了你的自定义密钥，他们仍然无法访问你的 GitHub 文件，因为 GitHub 令牌是安全地存储在 Workers 设置中的。
@@ -73,27 +73,27 @@ https://raw.viptv.work/https://raw.githubusercontent.com/hefung/raw/main/_worker
   然后，你的 URL 会是这样的：
 
 ```url
-https://raw.viptv.work/CF-Workers-Raw/main/_worker.js?token=sd123123
+https://raw.vodtv.cn/CF-Workers-Raw/main/_worker.js?token=sd123123
 ```
 
 - `GH_REPO`：你的 GitHub 仓库名（例如: **CF-Workers-Raw**，必须设置`GH_NAME`变量为前提）
   然后，你的 URL 会是这样的：
 
 ```url
-https://raw.viptv.work/main/_worker.js?token=sd123123
+https://raw.vodtv.cn/main/_worker.js?token=sd123123
 ```
 
 - `GH_BRANCH`：你的 GitHub 仓库名（例如: **main**，必须设置`GH_NAME`和`GH_REPO`变量为前提）
   然后，你的 URL 会是这样的：
 
 ```url
-https://raw.viptv.work/_worker.js?token=sd123123
+https://raw.vodtv.cn/_worker.js?token=sd123123
 ```
 
 **如您使用完整的原始 URL，则以上变量将不会生效！**
 
 ```url
-https://raw.viptv.work/https://raw.githubusercontent.com/hefung/raw/main/_worker.js?token=sd123123
+https://raw.vodtv.cn/https://raw.githubusercontent.com/hefung/raw/main/_worker.js?token=sd123123
 ```
 
 ## 如何设置这些变量？
